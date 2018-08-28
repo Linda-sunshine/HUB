@@ -9,3 +9,6 @@ run
 Jar/*
 output/*
 .idea/
+.settings/
+HUB.iml
+libs/
