@@ -296,48 +296,6 @@ public class DocAnalyzer extends Analyzer {
 		}
 	}
 	
-//	//Load a document and analyze it.
-//	protected void LoadJsonDoc(String filename) {
-//		_Product prod = null;
-//		JSONArray jarray = null;
-//		
-//		try {
-//			JSONObject json = LoadJSON(filename);
-//			prod = new _Product(json.getJSONObject("ProductInfo"));
-//			jarray = json.getJSONArray("Reviews");
-//		} catch (Exception e) {
-//			System.err.print('X');//fail to parse a json document
-//			return;
-//		}	
-//		
-//		for(int i=0; i<jarray.length(); i++) {
-//			try {
-//				_Post post = new _Post(jarray.getJSONObject(i));
-//				if (post.isValid(m_dateFormatter)) {
-//					long timeStamp = m_dateFormatter.parse(post.getDate()).getTime();
-//					String content;
-//					
-//					//append document title into document content
-//					if (Utils.endWithPunct(post.getTitle()))
-//						content = post.getTitle() + " " + post.getContent();
-//					else
-//						content = post.getTitle() + ". " + post.getContent();
-//					
-//					//int ID, String name, String prodID, String title, String source, int ylabel, long timeStamp
-//					_Doc review = new _Doc(m_corpus.getSize(), post.getID(), prod.getID(), post.getTitle(), content, post.getLabel()-1, timeStamp);
-//					if(this.m_stnDetector!=null)
-//						AnalyzeDocWithStnSplit(review);
-//					else
-//						AnalyzeDoc(review);
-//				}
-//			} catch (ParseException e) {
-//				System.out.print('T');
-//			} catch (JSONException e) {
-//				System.out.print('P');
-//			}
-//		}
-//	}
-	
 	//Load a document and analyze it.
 	protected void LoadJsonDoc(String filename) {
 		JSONArray jarray = null;

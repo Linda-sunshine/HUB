@@ -3,6 +3,8 @@
  */
 package structures;
 
+import utils.Utils;
+
 import java.io.BufferedWriter;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -11,8 +13,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Random;
-
-import utils.Utils;
 
 /**
  * @author lingong

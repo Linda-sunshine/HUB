@@ -1,23 +1,13 @@
 package Classifier.semisupervised;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.PrintWriter;
+import Classifier.supervised.modelAdaptation._AdaptStruct;
+import structures.*;
+import structures._Review.rType;
+
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
 
-import structures._Corpus;
-import structures._Doc;
-import structures._PerformanceStat;
-import structures._Review;
-import structures._Review.rType;
-import structures._User;
-import Classifier.supervised.modelAdaptation._AdaptStruct;
-
 public class GaussianFieldsByRandomWalkWithFriends extends GaussianFieldsByRandomWalk{
-
 
 	// key: user id; value: friends id.
 	HashMap<String, String[]> m_neighborsMap;
@@ -174,37 +164,5 @@ public class GaussianFieldsByRandomWalkWithFriends extends GaussianFieldsByRando
 			return Math.exp(getBoWSim(di, dj));
 		else
 			return 0;
-	}
-	
-	// added by Lin for model performance comparison.
-	// print out each user's test review's performance.
-	public void printUserPerformance(String filename){
-		PrintWriter writer;
-		try{
-			writer = new PrintWriter(new File(filename));
-			ArrayList<_AdaptStruct> userList = new ArrayList<_AdaptStruct>();
-			for(String u: m_userMap.keySet())
-				userList.add(m_userMap.get(u));
-			Collections.sort(userList, new Comparator<_AdaptStruct>(){
-				@Override
-				public int compare(_AdaptStruct u1, _AdaptStruct u2){
-					return String.CASE_INSENSITIVE_ORDER.compare(u1.getUserID(), u2.getUserID());
-				}
-			});
-			for(_AdaptStruct u: userList){
-				writer.write("-----\n");
-				writer.write(String.format("%s\t%d\n", u.getUserID(), u.getReviews().size()));
-				for(_Review r: u.getReviews()){
-					if(r.getType() == rType.ADAPTATION)
-						writer.write(String.format("%s\t%d\t%s\n", r.getCategory(), r.getYLabel(), r.getSource()));
-					if(r.getType() == rType.TEST){
-						writer.write(String.format("%s\t%d\t%d\t%s\n", r.getCategory(), r.getYLabel(), r.getPredictLabel(), r.getSource()));
-					}
-				}
-			}
-			writer.close();
-		} catch(IOException e){
-			e.printStackTrace();
-		}
 	}
 }

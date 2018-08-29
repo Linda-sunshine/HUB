@@ -2,7 +2,6 @@ bin/*
 data/*
 data/Features/*
 .DS_Store
-.classpath
 /bin/
 Jar/*
 output/*

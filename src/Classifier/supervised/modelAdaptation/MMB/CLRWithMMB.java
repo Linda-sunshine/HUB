@@ -1,33 +1,23 @@
 package Classifier.supervised.modelAdaptation.MMB;
 
+import Classifier.supervised.modelAdaptation.HDP.CLRWithHDP;
+import Classifier.supervised.modelAdaptation.HDP._HDPAdaptStruct;
+import Classifier.supervised.modelAdaptation._AdaptStruct;
+import cern.jet.random.tdouble.Beta;
+import cern.jet.random.tdouble.Gamma;
+import cern.jet.random.tfloat.FloatUniform;
+import org.apache.commons.math3.distribution.BinomialDistribution;
+import structures.*;
+import structures._HDPThetaStar._Connection;
+import structures._PerformanceStat.TestMode;
+import structures._Review.rType;
+import utils.Utils;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
-
-import org.apache.commons.math3.distribution.BinomialDistribution;
-
-import structures.MyPriorityQueue;
-import structures._HDPThetaStar;
-import structures._HDPThetaStar._Connection;
-import structures._MMBNeighbor;
-import structures._PerformanceStat.TestMode;
-import structures._RankItem;
-import structures._Review;
-import structures._Review.rType;
-import structures._User;
-import utils.Utils;
-import Classifier.supervised.modelAdaptation._AdaptStruct;
-import Classifier.supervised.modelAdaptation.HDP.CLRWithHDP;
-import Classifier.supervised.modelAdaptation.HDP._HDPAdaptStruct;
-import cern.jet.random.tdouble.Beta;
-import cern.jet.random.tdouble.Gamma;
-import cern.jet.random.tfloat.FloatUniform;
+import java.util.*;
 
 
 public class CLRWithMMB extends CLRWithHDP {

@@ -1,16 +1,12 @@
 package Classifier.supervised.modelAdaptation.MMB;
 
+import Classifier.supervised.modelAdaptation.DirichletProcess.DoubleNormalPrior;
+import Classifier.supervised.modelAdaptation._AdaptStruct;
+import structures.*;
+import utils.Utils;
+
 import java.util.ArrayList;
 import java.util.HashMap;
-
-import Classifier.supervised.modelAdaptation._AdaptStruct;
-import Classifier.supervised.modelAdaptation.DirichletProcess.DoubleNormalPrior;
-import structures._Doc;
-import structures._HDPThetaStar;
-import structures._Review;
-import structures._SparseFeature;
-import structures._User;
-import utils.Utils;
 
 public class CLinAdaptWithMMB extends CLRWithMMB {
 
