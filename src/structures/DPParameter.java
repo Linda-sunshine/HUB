@@ -94,7 +94,7 @@ public class DPParameter {
     private void exit_with_help() {
         System.out.print("Usage: java execution [options] training_folder\n"
                 + "options:\n"
-                + "-data: specific the dataset used for training (default YelpNew)\noption: Amazon, YelpNew\n"
+                + "-data: specify the dataset used for training (default YelpNew)\noption: Amazon, YelpNew\n"
                 + "-eta1: coefficient for the scaling in each user group's regularization (default 0.05)\n"
                 + "-eta2: coefficient for the shifting in each user group's regularization (default 0.05)\n"
                 + "-eta3: coefficient for the scaling in super user's regularization (default 0.05)\n"
