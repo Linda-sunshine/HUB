@@ -3,12 +3,9 @@ data/*
 data/Features/*
 .DS_Store
 .classpath
-compile
-run
 /bin/
 Jar/*
 output/*
 .idea/
 .settings/
 HUB.iml
-libs/
