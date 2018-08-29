@@ -4,4 +4,4 @@ JAR_PATH=$PROJECT_PATH/libs
 BIN_PATH=$PROJECT_PATH/bin
 CLASS_PATH=$PROJECT_PATH/src
 
-javac -g -nowarn -cp $CLASS_PATH -d $BIN_PATH -extdirs $JAR_PATH $CLASS_PATH/mains/ETBIRExecution.java
+javac -g -nowarn -cp $CLASS_PATH -d $BIN_PATH -extdirs $JAR_PATH $CLASS_PATH/mains/HUBExecution.java
