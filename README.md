@@ -6,7 +6,7 @@ Lin Gong and Hongning Wang. When Sentiment Analysis Meets Social Network: A Holi
 
 ## Quick Start (For Linux and Mac)
 * Download the [HUB repo](https://github.com/Linda-sunshine/HUB.git) to your local machine.
-* Download the [data]() to the directory that **./src** lies in.
+* Download the [data](http://www.cs.virginia.edu/~lg5bt/files/data.zip) to the directory that **./src** lies in.
 * Compile the whole project with [complie file](https://github.com/Linda-sunshine/HUB/blob/master/compile).
 ```
 ./compile
