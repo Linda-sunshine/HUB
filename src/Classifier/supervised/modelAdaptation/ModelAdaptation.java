@@ -18,6 +18,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 
 import Classifier.BaseClassifier;
+import Classifier.supervised.modelAdaptation.MMB._MMBAdaptStruct;
 import Classifier.supervised.modelAdaptation._AdaptStruct.SimType;
 import structures._Doc;
 import structures._PerformanceStat;
@@ -441,6 +442,29 @@ public abstract class ModelAdaptation extends BaseClassifier {
 			e.printStackTrace();
 		}
 		
+	}
+    // save user performance with details
+	public void savePerfWithDetail(String filename){
+		PrintWriter writer;
+		try{
+			writer = new PrintWriter(new File(filename));
+			for(_AdaptStruct u: m_userList){
+                _MMBAdaptStruct user = (_MMBAdaptStruct) u;
+                writer.write(String.format("%s\t%.5f\t%.5f\n", u.getUserID(), u.getPerfStat().getF1(0), u.getPerfStat().getF1(1)));
+                for(_Review r:u.getReviews()) {
+                    if (r.getType() != rType.TEST)
+                        continue;
+                    int trueL = r.getYLabel();
+                    int predL = user.predict(r);
+                    // in each triplet: (itemId, trueLabel, predLabel)
+                    writer.write(String.format("(%s,%d,%d)\t", r.getItemID(), trueL, predL));
+                }
+                writer.write('\n');
+			}
+			writer.close();
+		} catch(IOException e){
+			e.printStackTrace();
+		}
 	}
 	
 	public double[] getPerf(){
